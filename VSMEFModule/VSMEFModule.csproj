@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net5.0-windows10.0.19041.0</TargetFramework>
+    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <RootNamespace>VSMEFModule</RootNamespace>
+    <RuntimeIdentifiers>win10-x86;win10-x64;win10-arm64</RuntimeIdentifiers>
+    <UseWinUI>true</UseWinUI>
+    <NeutralLanguage>en-US</NeutralLanguage>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Strings\es-ES\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Module.cs" />
+    <Compile Include="Views\MainPage.xaml.cs" />
+    <Compile Include="YetAnotherExport.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+      <PackageReference Include="Microsoft.VisualStudio.Composition" Version="16.9.20" />
+      <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="Views\MainPage.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CoreLibrary\CoreLibrary.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Views\MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PRIResource Include="Strings\en-US\Resources.resw" />
+    <PRIResource Include="Strings\es-ES\Resources.resw" />
+  </ItemGroup>
+</Project>
